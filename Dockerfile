@@ -25,8 +25,4 @@ RUN mkdir -p data/db
 
 EXPOSE 9876
 
-ENTRYPOINT mongod \
-                --fork \
-                --logpath /tmp/mongo.log \
-                --dbpath data/db && \
-           python PostmonServer.py
+ENTRYPOINT sh run.sh
