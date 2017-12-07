@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Bluesoft Fire <devops@bluesoft.com.br>
 
 RUN apt-get -y update && \
@@ -11,7 +11,8 @@ RUN apt-get -y update && \
         mongodb \
         python2.7 \
         python2.7-dev \
-        python-pip
+        python-pip \
+	      python-setuptools
 
 ENV APP_DIR /srv/postmon
 
@@ -29,4 +30,3 @@ ENTRYPOINT mongod \
                 --logpath /tmp/mongo.log \
                 --dbpath data/db && \
            python PostmonServer.py
-
